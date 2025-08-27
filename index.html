@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JRP - Jelgava Roleplay</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+            background: #0f0f23;
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        .header {
+            background: #1a1a2e;
+            border-bottom: 1px solid #16213e;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.5rem 1rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            border: 1px solid #3b82f6;
+            background: transparent;
+            color: #3b82f6;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background: #3b82f6;
+            color: #fff;
+        }
+
+        .btn-primary {
+            background: #3b82f6;
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background: #2563eb;
+            border-color: #2563eb;
+        }
+
+        .btn:disabled {
+            background: transparent;
+            border-color: #4b5563;
+            color: #4b5563;
+            cursor: not-allowed;
+        }
+
+        .btn:disabled:hover {
+            background: transparent;
+            color: #4b5563;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .hero {
+            padding: 6rem 0 4rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: #9ca3af;
+            margin-bottom: 2rem;
+        }
+
+        .section {
+            margin-bottom: 4rem;
+        }
+
+        .section h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .section p {
+            font-size: 1rem;
+            color: #d1d5db;
+            margin-bottom: 1rem;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .feature {
+            background: #1a1a2e;
+            border: 1px solid #16213e;
+            padding: 2rem;
+        }
+
+        .feature h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #fff;
+        }
+
+        .feature p {
+            color: #9ca3af;
+        }
+
+        .application-form {
+            display: none;
+            max-width: 600px;
+            margin: 2rem auto;
+            background: #1a1a2e;
+            border: 1px solid #16213e;
+            padding: 2rem;
+        }
+
+        .application-form h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            color: #fff;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: #d1d5db;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            font-size: 0.875rem;
+            background: #0f0f23;
+            border: 1px solid #374151;
+            color: #fff;
+            outline: none;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #3b82f6;
+        }
+
+        .form-group textarea {
+            height: 100px;
+            resize: vertical;
+        }
+
+        .captcha {
+            background: #0f0f23;
+            border: 1px solid #374151;
+            padding: 1rem;
+            margin: 1rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .captcha input[type="checkbox"] {
+            width: auto;
+        }
+
+        .captcha label {
+            color: #d1d5db;
+            cursor: pointer;
+            margin-bottom: 0;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 0.75rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            background: #3b82f6;
+            border: 1px solid #3b82f6;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .submit-btn:hover {
+            background: #2563eb;
+            border-color: #2563eb;
+        }
+
+        .submit-btn:disabled {
+            background: #374151;
+            border-color: #374151;
+            cursor: not-allowed;
+        }
+
+        .error {
+            color: #ef4444;
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .nav {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .application-form {
+                margin: 2rem 1rem;
+                padding: 1.5rem;
+            }
+
+            .epiciframe {
+                border: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <a href="#" class="logo">JRP</a>
+            <div class="nav-links">
+                <button class="btn btn-primary" onclick="showApplication()">Aizpildīt pieteikumu</button>
+                <button class="btn" disabled onclick="showPlayMessage()">Spēlēt</button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <section class="hero">
+                <h1>Jelgava Roleplay</h1>
+                <p>FiveM multiplayer modification server</p>
+            </section>
+
+            <section class="section">
+                <h2>Par serveri</h2>
+                <p>Jelgava RP ir reālistisks FiveM roleplay serveris, kas balstīts uz Jelgavas pilsētu. Mēs piedāvājam autentisku Latvijas pieredzi ar kvalitatīvu roleplay un aktīvu kopienu.</p>
+                <p>Serverī ir pieejamas dažādas darba vietas - no policijas un mediķiem līdz biznesa iespējām un kriminālajām aktivitātēm. Katrs spēlētājs var radīt savu unikālo stāstu Jelgavas ielās.</p>
+            </section>
+
+            <div class="features">
+                <div class="feature">
+                    <h3>Reālistiska ekonomika</h3>
+                    <p>Ieviesta reālistiska ekonomikas sistēma ar dažādām darba iespējām un biznesa aktivitātēm.</p>
+                </div>
+                <div class="feature">
+                    <h3>Aktīva administrācija</h3>
+                    <p>Profesionāla administrācijas komanda nodrošina taisnīgu spēles procesu un organizē regulārus eventus.</p>
+                </div>
+                <div class="feature">
+                    <h3>Latviska vide</h3>
+                    <p>Spēlējiet latviešu valodā ar vietējiem likumiem un kultūras specifiku.</p>
+                </div>
+            </div>
+
+            <section class="section">
+                <h2>Kā pievienoties</h2>
+                <p>Lai spēlētu mūsu serverī, nepieciešams aizpildīt pieteikumu. Mēs rūpīgi pārbaudām katru kandidātu, lai garantētu kvalitatīvu roleplay vidi visiem dalībniekiem.</p>
+                <p>Pēc pieteikuma iesniegšanas, mūsu administrācija to izskatīs 1-3 darba dienu laikā. Ja pieteikums tiks apstiprināts, ar jums sazināsimies Discord platformā.</p>
+            </section>
+        </div>
+
+        <div class="application-form" id="applicationForm">
+            <h2>Pieteikuma forma</h2>
+            
+            <form id="applicationFormElement">
+                <div class="form-group">
+                    <label for="fivemUsername">FiveM lietotājvārds</label>
+                    <input type="text" id="fivemUsername" name="fivemUsername" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="discordUsername">Discord lietotājvārds</label>
+                    <input type="text" id="discordUsername" name="discordUsername" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="age">Vecums (minimums 13 gadi)</label>
+                    <input type="number" id="age" name="age" min="13" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="reason">Kāpēc mums vajadzētu tevi pieņemt serverī?</label>
+                    <textarea id="reason" name="reason" placeholder="Apraksti savu pieredzi un motivāciju..." required></textarea>
+                </div>
+
+                <div class="captcha">
+                    <iframe class="epiciframe" src="recaptcha/index.html" width="800px" height="400px" frameborder="0"></iframe>
+                </div>
+
+                <button type="button" class="submit-btn" onclick="submitApplication()">
+                    Iesniegt pieteikumu
+                </button>
+                
+                <div class="error" id="errorMessage">
+                    Vispirms jāizpilda captcha!
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <script>
+        function showApplication() {
+            const form = document.getElementById('applicationForm');
+            form.style.display = 'block';
+            form.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function showPlayMessage() {
+            alert('Vispirms jāaizpilda pieteikums!');
+        }
+
+        function submitApplication() {
+            const captcha = document.getElementById('captcha');
+            const errorMessage = document.getElementById('errorMessage');
+
+            if (!captcha.checked) {
+                errorMessage.style.display = 'block';
+                setTimeout(() => {
+                    errorMessage.style.display = 'none';
+                }, 4000);
+                return;
+            }
+
+            console.log('Ready to submit form');
+        }
+
+        document.getElementById('age').addEventListener('input', function() {
+            if (this.value < 13 && this.value !== '') {
+                this.style.borderColor = '#ef4444';
+            } else {
+                this.style.borderColor = '#374151';
+            }
+        });
+    </script>
+</body>
+</html>
